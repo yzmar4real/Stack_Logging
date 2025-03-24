@@ -1,5 +1,5 @@
-FROM fluent/fluentd:v1.14-1
-
+FROM balabit/syslog-ng:latest
 USER root
-RUN gem install fluent-plugin-elasticsearch
-USER fluent
+# Copy your syslog-ng configuration file into the container
+COPY syslog-ng.conf /etc/syslog-ng/syslog-ng.conf
+USER syslog-ng

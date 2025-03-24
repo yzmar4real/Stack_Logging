@@ -10,7 +10,7 @@ services:
       - esdata:/usr/share/elasticsearch/data
 
   fluentd:
-    image: fluent/fluentd:v1.14-1
+    image: ./fluentd
     ports:
       - "24224:24224"
       - "24224:24224/udp"

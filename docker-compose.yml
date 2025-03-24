@@ -9,15 +9,15 @@ services:
     volumes:
       - esdata:/usr/share/elasticsearch/data
 
-  fluentd:
-    image: ./fluentd
+  syslog-ng:
+    build: ./syslog-ng
     ports:
       - "24224:24224"
       - "24224:24224/udp"
     volumes:
-      - ./fluentd/conf:/fluentd/etc
+      - ./syslog-ng/conf:/etc/syslog-ng/conf.d
     environment:
-      - FLUENTD_CONF=fluent.conf
+      - SYSLOG_NG_CONF=syslog-ng.conf
 
   kibana:
     image: docker.elastic.co/kibana/kibana:7.10.1
